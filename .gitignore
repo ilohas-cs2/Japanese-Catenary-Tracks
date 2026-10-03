@@ -1,0 +1,10 @@
+build/
+.vs/
+.vscode/
+*.user
+*.dll
+*.cok
+*.cid
+*.blend
+*.fbx
+
