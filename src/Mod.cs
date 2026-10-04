@@ -15,7 +15,7 @@ using UnityEngine;
 using Unity.Mathematics;
 using Unity.Entities;
 
-[assembly: AssemblyVersion("0.3.0.9")]
+[assembly: AssemblyVersion("0.3.0.10")]
 namespace JPCatenaryPrototype {
  public sealed class Mod : IMod {
   public const string TrackName="JPCatenary_SingleTrack_5m_Prototype";
@@ -49,7 +49,7 @@ namespace JPCatenaryPrototype {
    updates.UpdateBefore<CatenarySystem,PrefabSystem>(SystemUpdatePhase.MainLoop);
    updates.UpdateBefore<CatenaryWireFinalizeSystem,Game.Rendering.RequiredBatchesSystem>(SystemUpdatePhase.ModificationEnd);
    updates.UpdateBefore<MixedJoinVisibilitySystem,Game.Rendering.PreCullingSystem>(SystemUpdatePhase.PreCulling);
-   Log.Info("Loaded prototype 0.3.0.9. Railway-scoped, change-gated catenary correction.");
+   Log.Info("Loaded prototype 0.3.0.10. Railway-scoped, change-gated catenary correction.");
   }
   public void OnDispose() {}
  }

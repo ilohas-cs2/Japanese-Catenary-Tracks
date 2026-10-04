@@ -16,9 +16,14 @@ namespace JPCatenaryPrototype {
    var routes=new Dictionary<Entity,PortalEdge>();nodes=new Dictionary<Entity,List<PortalEdge>>();degree=new Dictionary<Entity,int>();
    var q=GetEntityQuery(ComponentType.ReadOnly<Game.Net.Edge>(),ComponentType.ReadOnly<Game.Net.Curve>(),ComponentType.ReadOnly<PrefabRef>(),ComponentType.Exclude<Game.Common.Deleted>(),ComponentType.Exclude<Game.Tools.Temp>());
    using(var entities=ScopedWorkEntities(q,workEdges))foreach(var e in entities){
+    var prefab=EntityManager.GetComponentData<PrefabRef>(e).m_Prefab;
+    // Count railway continuations separately from crossing road arms. The
+    // pole-placement and mixed-join policies still see the full junction,
+    // so a road crossing does not gain a new pole in the carriageway.
+    if(!CatenaryJunctionPolicy.CountsForWireDegree(tracks.ContainsKey(prefab),EntityManager.HasComponent<Game.Net.TrainTrack>(e),EntityManager.HasComponent<Game.Net.Road>(e)))continue;
     var net=EntityManager.GetComponentData<Game.Net.Edge>(e);
     foreach(var n in new[]{net.m_Start,net.m_End}){if(!degree.ContainsKey(n))degree[n]=0;degree[n]++;}
-    AlternatingFamily f;if(!tracks.TryGetValue(EntityManager.GetComponentData<PrefabRef>(e).m_Prefab,out f))continue;
+    AlternatingFamily f;if(!tracks.TryGetValue(prefab,out f))continue;
     var edge=new PortalEdge{entity=e,edge=net,curve=EntityManager.GetComponentData<Game.Net.Curve>(e).m_Bezier,family=f};routes.Add(e,edge);
     foreach(var n in new[]{net.m_Start,net.m_End}){if(!nodes.ContainsKey(n))nodes[n]=new List<PortalEdge>();nodes[n].Add(edge);}
    }
