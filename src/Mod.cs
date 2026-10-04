@@ -15,7 +15,7 @@ using UnityEngine;
 using Unity.Mathematics;
 using Unity.Entities;
 
-[assembly: AssemblyVersion("0.3.0.7")]
+[assembly: AssemblyVersion("0.3.0.9")]
 namespace JPCatenaryPrototype {
  public sealed class Mod : IMod {
   public const string TrackName="JPCatenary_SingleTrack_5m_Prototype";
@@ -49,7 +49,7 @@ namespace JPCatenaryPrototype {
    updates.UpdateBefore<CatenarySystem,PrefabSystem>(SystemUpdatePhase.MainLoop);
    updates.UpdateBefore<CatenaryWireFinalizeSystem,Game.Rendering.RequiredBatchesSystem>(SystemUpdatePhase.ModificationEnd);
    updates.UpdateBefore<MixedJoinVisibilitySystem,Game.Rendering.PreCullingSystem>(SystemUpdatePhase.PreCulling);
-   Log.Info("Loaded prototype 0.3.0.7. One-way catenary does not inherit left-hand-traffic composition mirroring.");
+   Log.Info("Loaded prototype 0.3.0.9. Railway-scoped, change-gated catenary correction.");
   }
   public void OnDispose() {}
  }
@@ -72,13 +72,14 @@ namespace JPCatenaryPrototype {
   Task importTask;
   string pendingImportName;
   StaticObjectPrefab pendingExistingModel;
-  int frames,laneCount,poleCount,lastPlacedCount=-1;
+  int frames,laneCount,poleCount;
   readonly Dictionary<Entity,int> readinessChecks=new Dictionary<Entity,int>();
   static readonly FieldInfo PrefabList=typeof(PrefabSystem).GetField("m_Prefabs",BindingFlags.NonPublic|BindingFlags.Instance);
   protected override void OnCreate(){base.OnCreate();system=World.GetOrCreateSystemManaged<PrefabSystem>();}
-  protected override void OnGameLoadingComplete(Colossal.Serialization.Entities.Purpose purpose,GameMode mode){base.OnGameLoadingComplete(purpose,mode);linked=false;readinessChecks.Clear();expansionLinked.Clear();mixedReady=false;mixedOrder=0;mixedFailed=false;mixedStatus="";portalAlignmentFailed=false;portalWireStatus="";mixedFeederAudit="";redundantWireStatus="";}
+  protected override void OnGameLoadingComplete(Colossal.Serialization.Entities.Purpose purpose,GameMode mode){base.OnGameLoadingComplete(purpose,mode);ResetWorkScope();linked=false;readinessChecks.Clear();expansionLinked.Clear();mixedReady=false;mixedOrder=0;mixedFailed=false;mixedStatus="";portalAlignmentFailed=false;portalWireStatus="";mixedFeederAudit="";redundantWireStatus="";}
   protected override void OnUpdate(){
    if(++frames%30!=1 || failed || GameManager.instance.isGameLoading)return;
+   if(track!=null&&linked&&expansionBuilt&&expansionLinked.Count==expansionTracks.Count)return;
    try {
     var all=((IEnumerable<PrefabBase>)PrefabList.GetValue(system)).ToArray();
     var original=all.OfType<TrackPrefab>().FirstOrDefault(p=>p.name=="Twoway Train Track");
@@ -87,7 +88,7 @@ namespace JPCatenaryPrototype {
     if(originalDouble==null)return;
     var originalOneway=all.OfType<TrackPrefab>().FirstOrDefault(p=>p.name=="Oneway Train Track");
     if(originalOneway==null)return;
-    if(track!=null){LinkMenu();if(linked){LogPlacedPoles();UpdateAlternatingPoles();UpdateExpansion(all);UpdateMixedJoins();UpdatePortalWireAlignment();}return;}
+    if(track!=null){LinkMenu();if(linked){UpdateExpansion(all);}return;}
     if(importTask!=null){
      if(!importTask.IsCompleted)return;
      if(importTask.IsFaulted)throw importTask.Exception;
@@ -380,22 +381,5 @@ namespace JPCatenaryPrototype {
    }
    Mod.Log.Info("DEPENDENCIES_READY "+registration.Count+" registered prefabs");return true;
   }
-  void LogPlacedPoles(){
-   if(frames%150!=1)return;
-   var query=GetEntityQuery(ComponentType.ReadOnly<Game.Objects.Transform>(),ComponentType.ReadOnly<PrefabRef>(),ComponentType.Exclude<Game.Common.Deleted>(),ComponentType.Exclude<Game.Tools.Temp>());
-   using(var entities=query.ToEntityArray(Unity.Collections.Allocator.Temp)){
-    var selected=new List<Entity>();var poleEntity=system.GetEntity(pole);
-    for(int i=0;i<entities.Length;i++)if(EntityManager.GetComponentData<PrefabRef>(entities[i]).m_Prefab==poleEntity)selected.Add(entities[i]);
-    if(selected.Count==lastPlacedCount)return;lastPlacedCount=selected.Count;
-    Mod.Log.Info("PLACED_POLES "+selected.Count);
-    foreach(var entity in selected.Take(12)){
-     var transform=EntityManager.GetComponentData<Game.Objects.Transform>(entity);
-     var tip=transform.m_Position+math.mul(transform.m_Rotation,new float3(Reach,ContactLocal,0));
-     Mod.Log.Info("POLE_POSE "+entity+" base="+transform.m_Position+" rotation="+transform.m_Rotation.value+" contact="+tip);
-    }
-   }
-  }
  }
 }
-
-

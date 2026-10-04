@@ -15,7 +15,7 @@ namespace JPCatenaryPrototype {
    var caps=new Dictionary<Entity,List<string>>();var nodeWires=new Dictionary<Entity,int>();var suppressed=new Dictionary<Entity,int>();
    foreach(var j in joins){caps[j.Key]=new List<string>();nodeWires[j.Key]=0;suppressed[j.Key]=0;}
    var q=GetEntityQuery(ComponentType.ReadOnly<Game.Net.Lane>(),ComponentType.ReadOnly<Game.Net.Curve>(),ComponentType.ReadOnly<Game.Common.Owner>(),ComponentType.ReadOnly<PrefabRef>(),ComponentType.Exclude<Game.Common.Deleted>(),ComponentType.Exclude<Game.Tools.Temp>());
-   using(var entities=q.ToEntityArray(Unity.Collections.Allocator.Temp))foreach(var e in entities){
+   using(var entities=ScopedWorkEntities(q,workLanes))foreach(var e in entities){
     var prefab=EntityManager.GetComponentData<PrefabRef>(e).m_Prefab;if(!feeders.Contains(prefab))continue;
     var owner=EntityManager.GetComponentData<Game.Common.Owner>(e).m_Owner;
     if(nodeWires.ContainsKey(owner)){nodeWires[owner]++;if(EntityManager.HasComponent<MixedJoinHidden>(e))suppressed[owner]++;}
@@ -45,7 +45,7 @@ namespace JPCatenaryPrototype {
     rows.Add("pole="+p.entity.Index+" owner="+p.owner.Index+" family="+p.family.key+" pos="+AuditPoint(p.pose.m_Position)+" forward="+AuditPoint(forward)+" supported="+anchors.ContainsKey(p.entity)+" "+AuditVisibility(p.entity));
    }
    var q=GetEntityQuery(ComponentType.ReadOnly<Game.Net.Lane>(),ComponentType.ReadOnly<Game.Net.Curve>(),ComponentType.ReadOnly<Game.Common.Owner>(),ComponentType.ReadOnly<PrefabRef>(),ComponentType.Exclude<Game.Common.Deleted>(),ComponentType.Exclude<Game.Tools.Temp>());
-   using(var entities=q.ToEntityArray(Unity.Collections.Allocator.Temp))foreach(var e in entities){
+   using(var entities=ScopedWorkEntities(q,workLanes))foreach(var e in entities){
     var owner=EntityManager.GetComponentData<Game.Common.Owner>(e).m_Owner;
     for(int i=0;i<4&&!poleIds.Contains(owner)&&EntityManager.HasComponent<Game.Common.Owner>(owner);i++)owner=EntityManager.GetComponentData<Game.Common.Owner>(owner).m_Owner;
     if(!poleIds.Contains(owner))continue;

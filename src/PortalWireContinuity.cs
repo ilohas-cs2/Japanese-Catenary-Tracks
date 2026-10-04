@@ -15,7 +15,7 @@ namespace JPCatenaryPrototype {
    foreach(var f in expansionFamilies.Where(f=>f.portal||f.commonWiring))foreach(var t in f.tracks)tracks[system.GetEntity(t)]=f;
    var routes=new Dictionary<Entity,PortalEdge>();nodes=new Dictionary<Entity,List<PortalEdge>>();degree=new Dictionary<Entity,int>();
    var q=GetEntityQuery(ComponentType.ReadOnly<Game.Net.Edge>(),ComponentType.ReadOnly<Game.Net.Curve>(),ComponentType.ReadOnly<PrefabRef>(),ComponentType.Exclude<Game.Common.Deleted>(),ComponentType.Exclude<Game.Tools.Temp>());
-   using(var entities=q.ToEntityArray(Unity.Collections.Allocator.Temp))foreach(var e in entities){
+   using(var entities=ScopedWorkEntities(q,workEdges))foreach(var e in entities){
     var net=EntityManager.GetComponentData<Game.Net.Edge>(e);
     foreach(var n in new[]{net.m_Start,net.m_End}){if(!degree.ContainsKey(n))degree[n]=0;degree[n]++;}
     AlternatingFamily f;if(!tracks.TryGetValue(EntityManager.GetComponentData<PrefabRef>(e).m_Prefab,out f))continue;
@@ -63,7 +63,7 @@ namespace JPCatenaryPrototype {
    pairs=0;managed=new HashSet<Entity>();joins=new List<PortalSeamJoin>();int changed=0;var ends=new Dictionary<Entity,List<PortalEnd>>();
    var supported=new HashSet<Entity>(anchors.Values.SelectMany(a=>a).Select(a=>a.prefab));
    var q=GetEntityQuery(ComponentType.ReadOnly<Game.Net.EdgeLane>(),ComponentType.ReadOnly<Game.Net.Curve>(),ComponentType.ReadOnly<Game.Common.Owner>(),ComponentType.ReadOnly<PrefabRef>(),ComponentType.Exclude<Game.Common.Deleted>(),ComponentType.Exclude<Game.Tools.Temp>(),ComponentType.Exclude<Game.Tools.Hidden>());
-   using(var entities=q.ToEntityArray(Unity.Collections.Allocator.Temp))foreach(var e in entities){
+   using(var entities=ScopedWorkEntities(q,workLanes))foreach(var e in entities){
     PortalEdge edge;if(!routes.TryGetValue(EntityManager.GetComponentData<Game.Common.Owner>(e).m_Owner,out edge))continue;
     var prefab=EntityManager.GetComponentData<PrefabRef>(e).m_Prefab;if(!supported.Contains(prefab)||!EntityManager.HasComponent<Game.Net.EdgeGeometry>(edge.entity))continue;
     var delta=EntityManager.GetComponentData<Game.Net.EdgeLane>(e).m_EdgeDelta;

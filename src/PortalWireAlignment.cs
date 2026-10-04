@@ -12,15 +12,7 @@ namespace JPCatenaryPrototype {
   bool portalAlignmentFailed;
   string portalWireStatus="";
   bool finalizingPortalWires;
-  public void FinalizePortalWires(){
-   if(!expansionBuilt||expansionLinked.Count!=expansionTracks.Count)return;
-   // MainLoop runs before native lane regeneration and Hidden-state changes.
-   // Repeat reconciliation after those edits, before RequiredBatches consumes
-   // the curves. This pass is idle when the already-correct geometry is stable.
-   finalizingPortalWires=true;
-   try{UpdateMixedJoins();UpdatePortalWireAlignment();}
-   finally{finalizingPortalWires=false;}
-  }
+  public void FinalizePortalWires(){RunCatenaryWork();}
   void UpdatePortalWireAlignment(){
    if(!expansionBuilt||expansionLinked.Count!=expansionTracks.Count||portalAlignmentFailed)return;
    try {AlignPortalWires();}catch(Exception ex){portalAlignmentFailed=true;Mod.Log.Error(ex,"Portal wire alignment stopped; existing track prefabs retained.");}
@@ -32,7 +24,7 @@ namespace JPCatenaryPrototype {
    foreach(var f in expansionFamilies.Where(f=>f.portal||f.commonWiring)){families[system.GetEntity(f.a)]=f;families[system.GetEntity(f.b)]=f;}
    var poses=new List<PortalPose>();
    var q=GetEntityQuery(ComponentType.ReadOnly<Game.Objects.Transform>(),ComponentType.ReadOnly<PrefabRef>(),ComponentType.ReadOnly<Game.Common.Owner>(),ComponentType.Exclude<Game.Common.Deleted>(),ComponentType.Exclude<Game.Tools.Temp>());
-   using(var entities=q.ToEntityArray(Unity.Collections.Allocator.Temp))foreach(var e in entities){
+   using(var entities=ScopedWorkEntities(q,workObjects))foreach(var e in entities){
     AlternatingFamily f;if(!families.TryGetValue(EntityManager.GetComponentData<PrefabRef>(e).m_Prefab,out f))continue;
     var owner=EntityManager.GetComponentData<Game.Common.Owner>(e).m_Owner;
     for(int i=0;i<4&&!EntityManager.HasComponent<Game.Net.Edge>(owner)&&!EntityManager.HasComponent<Game.Net.Node>(owner)&&EntityManager.HasComponent<Game.Common.Owner>(owner);i++)owner=EntityManager.GetComponentData<Game.Common.Owner>(owner).m_Owner;
@@ -88,7 +80,7 @@ namespace JPCatenaryPrototype {
    int feederLanes=0,railLanes=0,routed=0,unmatched=0,degenerate=0,hiddenLanes=0;
    var misses=new List<string>();
    var lanes=GetEntityQuery(ComponentType.ReadOnly<Game.Net.Lane>(),ComponentType.ReadWrite<Game.Net.Curve>(),ComponentType.ReadOnly<PrefabRef>(),ComponentType.ReadOnly<Game.Common.Owner>(),ComponentType.Exclude<Game.Common.Deleted>(),ComponentType.Exclude<Game.Tools.Temp>());
-   using(var entities=lanes.ToEntityArray(Unity.Collections.Allocator.Temp))foreach(var e in entities){
+   using(var entities=ScopedWorkEntities(lanes,workLanes))foreach(var e in entities){
     if(seamLanes.Contains(e))continue;
     var owner=EntityManager.GetComponentData<Game.Common.Owner>(e).m_Owner;
     if(!EntityManager.HasComponent<Game.Net.Edge>(owner)&&!EntityManager.HasComponent<Game.Net.Node>(owner))continue;

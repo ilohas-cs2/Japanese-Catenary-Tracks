@@ -52,7 +52,7 @@ namespace JPCatenaryPrototype {
    if(!EntityManager.GetComponentData<ObjectData>(iPrefab).m_Archetype.Equals(EntityManager.GetComponentData<ObjectData>(oPrefab).m_Archetype))throw new InvalidOperationException("I/O pole archetypes differ.");
    var edgeQuery=GetEntityQuery(ComponentType.ReadOnly<Game.Net.Edge>(),ComponentType.ReadOnly<Game.Net.Curve>(),ComponentType.ReadOnly<PrefabRef>(),ComponentType.Exclude<Game.Common.Deleted>(),ComponentType.Exclude<Game.Tools.Temp>());
    var edges=new Dictionary<Entity,TrackEdge>();var adjacency=new Dictionary<Entity,List<Port>>();
-   using(var entities=edgeQuery.ToEntityArray(Unity.Collections.Allocator.Temp)){
+   using(var entities=ScopedWorkEntities(edgeQuery,workEdges)){
     foreach(var entity in entities){
      var prefab=EntityManager.GetComponentData<PrefabRef>(entity).m_Prefab;if(!supportedPrefabs.Contains(prefab))continue;
      var net=EntityManager.GetComponentData<Game.Net.Edge>(entity);var curve=EntityManager.GetComponentData<Game.Net.Curve>(entity);
@@ -68,7 +68,7 @@ namespace JPCatenaryPrototype {
    var orderedNodes=adjacency.Keys.ToList();orderedNodes.Sort(CompareNodePositions);
    var byOwner=new Dictionary<Entity,List<Entity>>();int poleCount=0,matched=0;
    var query=GetEntityQuery(ComponentType.ReadOnly<Game.Objects.Transform>(),ComponentType.ReadOnly<PrefabRef>(),ComponentType.ReadOnly<Game.Common.Owner>(),ComponentType.Exclude<Game.Common.Deleted>(),ComponentType.Exclude<Game.Tools.Temp>());
-   using(var entities=query.ToEntityArray(Unity.Collections.Allocator.Temp)){
+   using(var entities=ScopedWorkEntities(query,workObjects)){
     foreach(var entity in entities){
      var prefab=EntityManager.GetComponentData<PrefabRef>(entity).m_Prefab;if(prefab!=iPrefab&&prefab!=oPrefab)continue;poleCount++;
      var owner=EntityManager.GetComponentData<Game.Common.Owner>(entity).m_Owner;

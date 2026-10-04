@@ -37,7 +37,7 @@ namespace JPCatenaryPrototype {
    // Count every connected edge, including stock tracks. Reconciliation is
    // deliberately limited to two expansion tracks, never branch junctions.
    var degree=new Dictionary<Entity,int>();
-   using(var entities=query.ToEntityArray(Unity.Collections.Allocator.Temp))foreach(var e in entities){
+   using(var entities=ScopedWorkEntities(query,workEdges))foreach(var e in entities){
     var net=EntityManager.GetComponentData<Game.Net.Edge>(e);
     foreach(var n in new[]{net.m_Start,net.m_End}){if(!degree.ContainsKey(n))degree[n]=0;degree[n]++;}
     var prefab=EntityManager.GetComponentData<PrefabRef>(e).m_Prefab;AlternatingFamily family;
@@ -75,7 +75,7 @@ namespace JPCatenaryPrototype {
    }
    var objects=GetEntityQuery(ComponentType.ReadOnly<Game.Objects.Transform>(),ComponentType.ReadOnly<PrefabRef>(),ComponentType.ReadOnly<Game.Common.Owner>(),ComponentType.Exclude<Game.Common.Deleted>(),ComponentType.Exclude<Game.Tools.Temp>());
    int hidden=0,visible=0,changes=0;
-   using(var entities=objects.ToEntityArray(Unity.Collections.Allocator.Temp))foreach(var e in entities){
+   using(var entities=ScopedWorkEntities(objects,workObjects))foreach(var e in entities){
     AlternatingFamily family;if(!poles.TryGetValue(EntityManager.GetComponentData<PrefabRef>(e).m_Prefab,out family))continue;
     var owner=EntityManager.GetComponentData<Game.Common.Owner>(e).m_Owner;
     for(int depth=0;depth<4&&!adjacency.ContainsKey(owner)&&!EntityManager.HasComponent<Game.Net.Edge>(owner)&&EntityManager.HasComponent<Game.Common.Owner>(owner);depth++)owner=EntityManager.GetComponentData<Game.Common.Owner>(owner).m_Owner;

@@ -10,7 +10,7 @@ namespace JPCatenaryPrototype {
   int SuppressRedundantPortalWires(List<PortalPose> poses,Dictionary<Entity,List<PortalAnchor>> anchors,Dictionary<Entity,PortalEdge> routes,Dictionary<Entity,List<PortalEdge>> nodes,Dictionary<Entity,int> degree,HashSet<Entity> supported,List<PortalSeamJoin> seamJoins){
    var caps=new List<FeederCap>();var nodeLanes=new List<Entity>();
    var query=GetEntityQuery(ComponentType.ReadOnly<Game.Net.Lane>(),ComponentType.ReadOnly<Game.Net.Curve>(),ComponentType.ReadOnly<Game.Common.Owner>(),ComponentType.ReadOnly<PrefabRef>(),ComponentType.Exclude<Game.Common.Deleted>(),ComponentType.Exclude<Game.Tools.Temp>());
-   using(var entities=query.ToEntityArray(Unity.Collections.Allocator.Temp))foreach(var e in entities){
+   using(var entities=ScopedWorkEntities(query,workLanes))foreach(var e in entities){
     var prefab=EntityManager.GetComponentData<PrefabRef>(e).m_Prefab;
     if(!supported.Contains(prefab)&&!EntityManager.HasComponent<MixedJoinHidden>(e)&&!EntityManager.HasComponent<MixedJoinOverride>(e))continue;
     var owner=EntityManager.GetComponentData<Game.Common.Owner>(e).m_Owner;
