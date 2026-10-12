@@ -2935,6 +2935,1756 @@
         0.2030005007982254,
         9.199999809265137
       ]
+    },
+    {
+      "portal": false,
+      "pole_x": -3.6,
+      "reach": 3.675,
+      "contact_z": 5.2,
+      "contact_y": 0.0,
+      "messenger_x": -0.055,
+      "messenger_y": 0.0,
+      "messenger_z": 6.5,
+      "feeders": [
+        [
+          -4.72,
+          0,
+          7.24
+        ],
+        [
+          -3.17,
+          0,
+          7.24
+        ],
+        [
+          -2.48,
+          0,
+          7.24
+        ],
+        [
+          -3.6,
+          0,
+          9.1
+        ]
+      ],
+      "add_feeder": false,
+      "key": "GeneralINoAux",
+      "name": "JPC4GeneralINoAuxPole",
+      "contacts": [
+        {
+          "x": 3.675,
+          "y": 5.2,
+          "z": 0.0
+        }
+      ],
+      "messengers": [
+        {
+          "x": 3.618854284286499,
+          "y": 6.5,
+          "z": 0.0
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 14356,
+      "mesh_count": 1,
+      "bounds_min": [
+        -4.1854166984558105,
+        -0.2030005007982254,
+        0.0
+      ],
+      "bounds_max": [
+        0.3205220103263855,
+        0.2029995173215866,
+        9.199999809265137
+      ],
+      "single_common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": [],
+      "distribution_column_top": 9.2,
+      "no_auxiliary": true
+    },
+    {
+      "portal": false,
+      "pole_x": -3.6,
+      "reach": 3.675,
+      "contact_z": 5.2,
+      "contact_y": 0.0,
+      "messenger_x": -0.055,
+      "messenger_y": 0.0,
+      "messenger_z": 6.5,
+      "feeders": [
+        [
+          -4.72,
+          0,
+          7.24
+        ],
+        [
+          -3.17,
+          0,
+          7.24
+        ],
+        [
+          -2.48,
+          0,
+          7.24
+        ],
+        [
+          -3.6,
+          0,
+          9.1
+        ]
+      ],
+      "add_feeder": false,
+      "key": "GeneralONoAux",
+      "name": "JPC4GeneralONoAuxPole",
+      "contacts": [
+        {
+          "x": 3.675,
+          "y": 5.2,
+          "z": 0.0
+        }
+      ],
+      "messengers": [
+        {
+          "x": 3.618854284286499,
+          "y": 6.5,
+          "z": 0.0
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 14100,
+      "mesh_count": 1,
+      "bounds_min": [
+        -4.940833568572998,
+        -0.2030005007982254,
+        0.0
+      ],
+      "bounds_max": [
+        0.3205220103263855,
+        0.2029995173215866,
+        9.199999809265137
+      ],
+      "single_common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": [],
+      "distribution_column_top": 9.2,
+      "no_auxiliary": true
+    },
+    {
+      "portal": false,
+      "pole_x": -2.85,
+      "reach": 3.675,
+      "contact_z": 5.2,
+      "contact_y": -0.065,
+      "messenger_x": 0.01,
+      "messenger_y": 0.0,
+      "messenger_z": 6.185,
+      "feeders": [
+        [
+          -2.1123529411764705,
+          0,
+          7.55
+        ],
+        [
+          -3.6882352941176477,
+          0,
+          8.75
+        ],
+        [
+          -3.101470588235294,
+          0,
+          8.75
+        ],
+        [
+          -2.011764705882353,
+          0,
+          8.75
+        ]
+      ],
+      "add_feeder": false,
+      "key": "HairpinBNoAux",
+      "name": "JPC4HairpinBNoAuxPole",
+      "contacts": [
+        {
+          "x": 3.675,
+          "y": 5.2,
+          "z": -0.065
+        }
+      ],
+      "messengers": [
+        {
+          "x": 3.687894821166992,
+          "y": 6.184999942779541,
+          "z": 0.0
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 14008,
+      "mesh_count": 1,
+      "bounds_min": [
+        -5.052265167236328,
+        -0.2500005066394806,
+        -0.10000000149011612
+      ],
+      "bounds_max": [
+        1.0580003261566162,
+        0.3250119984149933,
+        9.600000381469727
+      ],
+      "single_common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": [],
+      "distribution_column_top": 9.6,
+      "no_auxiliary": true
+    },
+    {
+      "portal": false,
+      "pole_x": 0.0,
+      "reach": 3.45,
+      "contact_z": 5.42,
+      "contact_y": 0.0,
+      "messenger_x": 3.45,
+      "messenger_y": 0.0,
+      "messenger_z": 6.44,
+      "feeders": [
+        [
+          -0.66,
+          0,
+          7.694
+        ]
+      ],
+      "add_feeder": true,
+      "key": "ConcreteInwardNoAux",
+      "name": "JPC4ConcreteInwardNoAuxPole",
+      "contacts": [
+        {
+          "x": 3.675,
+          "y": 5.2,
+          "z": 0.0
+        }
+      ],
+      "messengers": [
+        {
+          "x": 3.674999952316284,
+          "y": 6.21999979019165,
+          "z": 0.0
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 8820,
+      "mesh_count": 1,
+      "bounds_min": [
+        -4.931956768035889,
+        -0.23000052571296692,
+        -0.11512915045022964
+      ],
+      "bounds_max": [
+        0.24500007927417755,
+        0.22999952733516693,
+        9.5600004196167
+      ],
+      "single_common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": [],
+      "distribution_column_top": 9.2,
+      "no_auxiliary": true
+    },
+    {
+      "portal": false,
+      "pole_x": 0.0,
+      "reach": 3.45,
+      "contact_z": 5.42,
+      "contact_y": 0.0,
+      "messenger_x": 3.45,
+      "messenger_y": 0.0,
+      "messenger_z": 6.44,
+      "feeders": [
+        [
+          -0.66,
+          0,
+          7.694
+        ]
+      ],
+      "add_feeder": true,
+      "key": "ConcreteOutwardNoAux",
+      "name": "JPC4ConcreteOutwardNoAuxPole",
+      "contacts": [
+        {
+          "x": 3.675,
+          "y": 5.2,
+          "z": 0.0
+        }
+      ],
+      "messengers": [
+        {
+          "x": 3.674999952316284,
+          "y": 6.21999979019165,
+          "z": 0.0
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 8820,
+      "mesh_count": 1,
+      "bounds_min": [
+        -4.111739158630371,
+        -0.23000052571296692,
+        -0.11512915045022964
+      ],
+      "bounds_max": [
+        0.24500007927417755,
+        0.22999952733516693,
+        9.5600004196167
+      ],
+      "single_common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": [],
+      "distribution_column_top": 9.2,
+      "no_auxiliary": true
+    },
+    {
+      "portal": false,
+      "pole_x": -3.4,
+      "reach": 3.675,
+      "contact_z": 5.2,
+      "contact_y": -0.065,
+      "messenger_x": 0.01,
+      "messenger_y": 0.0,
+      "messenger_z": 6.185,
+      "feeders": [
+        [
+          -2.52,
+          0,
+          7.55
+        ],
+        [
+          -4.4,
+          0,
+          8.75
+        ],
+        [
+          -3.7,
+          0,
+          8.75
+        ],
+        [
+          -2.4,
+          0,
+          8.75
+        ]
+      ],
+      "add_feeder": false,
+      "key": "HairpinANoAux",
+      "name": "JPC4HairpinANoAuxPole",
+      "contacts": [
+        {
+          "x": 3.675,
+          "y": 5.2,
+          "z": -0.065
+        }
+      ],
+      "messengers": [
+        {
+          "x": 3.6858088970184326,
+          "y": 6.184999942779541,
+          "z": 0.0
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 14776,
+      "mesh_count": 1,
+      "bounds_min": [
+        -4.332176685333252,
+        -0.2500005066394806,
+        -0.10000000149011612
+      ],
+      "bounds_max": [
+        1.0580003261566162,
+        0.3250119984149933,
+        9.600000381469727
+      ],
+      "single_common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": [],
+      "distribution_column_top": 9.6,
+      "no_auxiliary": true
+    },
+    {
+      "key": "SingleFrameInwardNoAux",
+      "name": "JPC4SingleFrameInwardNoAuxPole",
+      "portal": false,
+      "pole_x": 0,
+      "reach": 3.155,
+      "contact_z": 5.2,
+      "contact_y": -0.02,
+      "messenger_x": 3.155,
+      "messenger_y": -0.01,
+      "messenger_z": 5.63,
+      "feeders": [
+        [
+          0.7,
+          -0.02,
+          6.92
+        ]
+      ],
+      "contacts": [
+        {
+          "x": 3.675,
+          "y": 5.2,
+          "z": -0.02
+        }
+      ],
+      "messengers": [
+        {
+          "x": 3.674999952316284,
+          "y": 5.630000114440918,
+          "z": -0.009999999776482582
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 23748,
+      "bounds_min": [
+        -4.729159832000732,
+        -0.24181298911571503,
+        0.0
+      ],
+      "bounds_max": [
+        0.44192761182785034,
+        0.24181202054023743,
+        9.199999809265137
+      ],
+      "single_common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": [],
+      "distribution_column_top": 9.2,
+      "mesh_count": 1,
+      "no_auxiliary": true
+    },
+    {
+      "key": "SingleFrameOutwardNoAux",
+      "name": "JPC4SingleFrameOutwardNoAuxPole",
+      "portal": false,
+      "pole_x": 0,
+      "reach": 3.155,
+      "contact_z": 5.2,
+      "contact_y": -0.02,
+      "messenger_x": 3.155,
+      "messenger_y": -0.01,
+      "messenger_z": 5.63,
+      "feeders": [
+        [
+          0.7,
+          -0.02,
+          6.92
+        ]
+      ],
+      "contacts": [
+        {
+          "x": 3.675,
+          "y": 5.2,
+          "z": -0.02
+        }
+      ],
+      "messengers": [
+        {
+          "x": 3.674999952316284,
+          "y": 5.630000114440918,
+          "z": -0.009999999776482582
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 23748,
+      "bounds_min": [
+        -4.729159832000732,
+        -0.24181298911571503,
+        0.0
+      ],
+      "bounds_max": [
+        0.44192761182785034,
+        0.24181202054023743,
+        9.199999809265137
+      ],
+      "single_common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": [],
+      "distribution_column_top": 9.2,
+      "mesh_count": 1,
+      "no_auxiliary": true
+    },
+    {
+      "portal": true,
+      "pole_x": 0.0,
+      "reach": 0,
+      "contact_z": 5.2,
+      "contact_y": -0.02,
+      "messenger_x": 0.0,
+      "messenger_y": 0.048,
+      "messenger_z": 6.01,
+      "feeders": [
+        [
+          2.48,
+          0,
+          7.76
+        ],
+        [
+          3.58,
+          0,
+          7.76
+        ]
+      ],
+      "add_feeder": false,
+      "key": "SteelTubeCentralDoubleNoAux",
+      "name": "JPC4SteelTubeCentralDoubleNoAuxPole",
+      "contacts": [
+        {
+          "x": -2.0,
+          "y": 5.199999809265137,
+          "z": -0.019999999552965164
+        },
+        {
+          "x": 2.0,
+          "y": 5.199999809265137,
+          "z": -0.019999999552965164
+        }
+      ],
+      "messengers": [
+        {
+          "x": -2.0,
+          "y": 6.010000228881836,
+          "z": 0.04800000041723251
+        },
+        {
+          "x": 2.0,
+          "y": 6.010000228881836,
+          "z": 0.04800000041723251
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 32204,
+      "mesh_count": 482,
+      "bounds_min": [
+        -4.890500068664551,
+        -0.24000036716461182,
+        0.0
+      ],
+      "bounds_max": [
+        4.890500068664551,
+        0.32147902250289917,
+        8.0
+      ],
+      "common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": [],
+      "no_auxiliary": true
+    },
+    {
+      "portal": true,
+      "pole_x": 0.0,
+      "reach": 0,
+      "contact_z": 5.2,
+      "contact_y": -0.02,
+      "messenger_x": 0.0,
+      "messenger_y": 0.048,
+      "messenger_z": 6.01,
+      "feeders": [
+        [
+          2.48,
+          0,
+          7.76
+        ],
+        [
+          3.58,
+          0,
+          7.76
+        ]
+      ],
+      "add_feeder": false,
+      "key": "SteelTubeDirectDoubleNoAux",
+      "name": "JPC4SteelTubeDirectDoubleNoAuxPole",
+      "contacts": [
+        {
+          "x": -2.0,
+          "y": 5.199999809265137,
+          "z": -0.019999999552965164
+        },
+        {
+          "x": 2.0,
+          "y": 5.199999809265137,
+          "z": -0.019999999552965164
+        }
+      ],
+      "messengers": [
+        {
+          "x": -2.0,
+          "y": 6.010000228881836,
+          "z": 0.04800000041723251
+        },
+        {
+          "x": 2.0,
+          "y": 6.010000228881836,
+          "z": 0.04800000041723251
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 31792,
+      "mesh_count": 465,
+      "bounds_min": [
+        -4.890500068664551,
+        -0.24000036716461182,
+        0.0
+      ],
+      "bounds_max": [
+        4.890500068664551,
+        0.32147902250289917,
+        8.0
+      ],
+      "common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": [],
+      "no_auxiliary": true
+    },
+    {
+      "portal": true,
+      "pole_x": 0.0,
+      "reach": 0,
+      "contact_z": 5.2,
+      "contact_y": -0.06,
+      "messenger_x": 0.0,
+      "messenger_y": 0.075,
+      "messenger_z": 6.01,
+      "feeders": [
+        [
+          -1.55,
+          0,
+          7.693
+        ]
+      ],
+      "add_feeder": false,
+      "key": "TrussOutwardDoubleNoAux",
+      "name": "JPC4TrussOutwardDoubleNoAuxPole",
+      "contacts": [
+        {
+          "x": -2.0,
+          "y": 5.199999809265137,
+          "z": -0.05999999865889549
+        },
+        {
+          "x": 2.0,
+          "y": 5.199999809265137,
+          "z": -0.05999999865889549
+        }
+      ],
+      "messengers": [
+        {
+          "x": -2.0,
+          "y": 6.010000228881836,
+          "z": 0.07500000298023224
+        },
+        {
+          "x": 2.0,
+          "y": 6.010000228881836,
+          "z": 0.07500000298023224
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 23960,
+      "mesh_count": 496,
+      "bounds_min": [
+        -4.983500957489014,
+        -0.31400036811828613,
+        0.0
+      ],
+      "bounds_max": [
+        4.983500957489014,
+        0.31400036811828613,
+        8.6850004196167
+      ],
+      "common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": [],
+      "no_auxiliary": true
+    },
+    {
+      "portal": true,
+      "pole_x": 0.0,
+      "reach": 0,
+      "contact_z": 5.2,
+      "contact_y": -0.06,
+      "messenger_x": 0.0,
+      "messenger_y": 0.075,
+      "messenger_z": 6.01,
+      "feeders": [
+        [
+          -1.55,
+          0,
+          7.693
+        ]
+      ],
+      "add_feeder": false,
+      "key": "TrussInwardDoubleNoAux",
+      "name": "JPC4TrussInwardDoubleNoAuxPole",
+      "contacts": [
+        {
+          "x": -2.0,
+          "y": 5.199999809265137,
+          "z": -0.05999999865889549
+        },
+        {
+          "x": 2.0,
+          "y": 5.199999809265137,
+          "z": -0.05999999865889549
+        }
+      ],
+      "messengers": [
+        {
+          "x": -2.0,
+          "y": 6.010000228881836,
+          "z": 0.07500000298023224
+        },
+        {
+          "x": 2.0,
+          "y": 6.010000228881836,
+          "z": 0.07500000298023224
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 23960,
+      "mesh_count": 496,
+      "bounds_min": [
+        -4.983500957489014,
+        -0.31400036811828613,
+        0.0
+      ],
+      "bounds_max": [
+        4.983500957489014,
+        0.31400036811828613,
+        8.6850004196167
+      ],
+      "common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": [],
+      "no_auxiliary": true
+    },
+    {
+      "portal": true,
+      "pole_x": 0.0,
+      "reach": 0,
+      "contact_z": 5.2,
+      "contact_y": -0.06,
+      "messenger_x": 0.0,
+      "messenger_y": 0.075,
+      "messenger_z": 6.01,
+      "feeders": [
+        [
+          -1.9,
+          0,
+          7.8135
+        ],
+        [
+          1.9,
+          0,
+          7.8135
+        ]
+      ],
+      "add_feeder": false,
+      "key": "TrussDualOutwardDoubleNoAux",
+      "name": "JPC4TrussDualOutwardDoubleNoAuxPole",
+      "contacts": [
+        {
+          "x": -2.0,
+          "y": 5.199999809265137,
+          "z": -0.05999999865889549
+        },
+        {
+          "x": 2.0,
+          "y": 5.199999809265137,
+          "z": -0.05999999865889549
+        }
+      ],
+      "messengers": [
+        {
+          "x": -2.0,
+          "y": 6.010000228881836,
+          "z": 0.07500000298023224
+        },
+        {
+          "x": 2.0,
+          "y": 6.010000228881836,
+          "z": 0.07500000298023224
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 23916,
+      "mesh_count": 623,
+      "bounds_min": [
+        -4.983500957489014,
+        -0.31400036811828613,
+        0.0
+      ],
+      "bounds_max": [
+        4.983500957489014,
+        0.31400036811828613,
+        9.218000411987305
+      ],
+      "common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": [],
+      "no_auxiliary": true
+    },
+    {
+      "portal": true,
+      "pole_x": 0.0,
+      "reach": 0,
+      "contact_z": 5.2,
+      "contact_y": -0.06,
+      "messenger_x": 0.0,
+      "messenger_y": 0.075,
+      "messenger_z": 6.01,
+      "feeders": [
+        [
+          -1.9,
+          0,
+          7.8135
+        ],
+        [
+          1.9,
+          0,
+          7.8135
+        ]
+      ],
+      "add_feeder": false,
+      "key": "TrussDualInwardDoubleNoAux",
+      "name": "JPC4TrussDualInwardDoubleNoAuxPole",
+      "contacts": [
+        {
+          "x": -2.0,
+          "y": 5.199999809265137,
+          "z": -0.05999999865889549
+        },
+        {
+          "x": 2.0,
+          "y": 5.199999809265137,
+          "z": -0.05999999865889549
+        }
+      ],
+      "messengers": [
+        {
+          "x": -2.0,
+          "y": 6.010000228881836,
+          "z": 0.07500000298023224
+        },
+        {
+          "x": 2.0,
+          "y": 6.010000228881836,
+          "z": 0.07500000298023224
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 23916,
+      "mesh_count": 623,
+      "bounds_min": [
+        -4.983500957489014,
+        -0.31400036811828613,
+        0.0
+      ],
+      "bounds_max": [
+        4.983500957489014,
+        0.31400036811828613,
+        9.218000411987305
+      ],
+      "common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": [],
+      "no_auxiliary": true
+    },
+    {
+      "portal": true,
+      "pole_x": 0.0,
+      "reach": 0,
+      "contact_z": 5.2,
+      "contact_y": 0.0,
+      "messenger_x": 0.0,
+      "messenger_y": 0.05,
+      "messenger_z": 6.09,
+      "feeders": [
+        [
+          -3.18,
+          0,
+          8.568
+        ]
+      ],
+      "add_feeder": false,
+      "key": "FullSteelCentralDoubleNoAux",
+      "name": "JPC4FullSteelCentralDoubleNoAuxPole",
+      "contacts": [
+        {
+          "x": -2.0,
+          "y": 5.199999809265137,
+          "z": 0.0
+        },
+        {
+          "x": 2.0,
+          "y": 5.199999809265137,
+          "z": 0.0
+        }
+      ],
+      "messengers": [
+        {
+          "x": -2.0,
+          "y": 6.090000152587891,
+          "z": 0.05000000074505806
+        },
+        {
+          "x": 2.0,
+          "y": 6.090000152587891,
+          "z": 0.05000000074505806
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 32068,
+      "mesh_count": 480,
+      "bounds_min": [
+        -5.564999580383301,
+        -0.26500046253204346,
+        0.0
+      ],
+      "bounds_max": [
+        5.564999580383301,
+        0.26500046253204346,
+        8.383000373840332
+      ],
+      "common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": [],
+      "no_auxiliary": true
+    },
+    {
+      "portal": true,
+      "pole_x": 0.0,
+      "reach": 0,
+      "contact_z": 5.2,
+      "contact_y": 0.0,
+      "messenger_x": 0.0,
+      "messenger_y": 0.05,
+      "messenger_z": 6.09,
+      "feeders": [
+        [
+          -3.18,
+          0,
+          8.568
+        ]
+      ],
+      "add_feeder": false,
+      "key": "FullSteelDirectDoubleNoAux",
+      "name": "JPC4FullSteelDirectDoubleNoAuxPole",
+      "contacts": [
+        {
+          "x": -2.0,
+          "y": 5.199999809265137,
+          "z": 0.0
+        },
+        {
+          "x": 2.0,
+          "y": 5.199999809265137,
+          "z": 0.0
+        }
+      ],
+      "messengers": [
+        {
+          "x": -2.0,
+          "y": 6.090000152587891,
+          "z": 0.05000000074505806
+        },
+        {
+          "x": 2.0,
+          "y": 6.090000152587891,
+          "z": 0.05000000074505806
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 31672,
+      "mesh_count": 463,
+      "bounds_min": [
+        -5.564999580383301,
+        -0.26500046253204346,
+        0.0
+      ],
+      "bounds_max": [
+        5.564999580383301,
+        0.26500046253204346,
+        8.383000373840332
+      ],
+      "common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": [],
+      "no_auxiliary": true
+    },
+    {
+      "portal": true,
+      "pole_x": -3.6,
+      "reach": 3.675,
+      "contact_z": 5.2,
+      "contact_y": 0.0,
+      "messenger_x": -0.055,
+      "messenger_y": 0.0,
+      "messenger_z": 6.5,
+      "feeders": [
+        [
+          -4.72,
+          0,
+          7.24
+        ],
+        [
+          -3.17,
+          0,
+          7.24
+        ],
+        [
+          -2.48,
+          0,
+          7.24
+        ],
+        [
+          -3.6,
+          0,
+          9.1
+        ]
+      ],
+      "add_feeder": false,
+      "key": "GeneralIDoubleNoAux",
+      "name": "JPC4GeneralIDoubleNoAuxPole",
+      "contacts": [
+        {
+          "x": -2,
+          "y": 5.2,
+          "z": 0.0
+        },
+        {
+          "x": 2,
+          "y": 5.2,
+          "z": -0.0
+        }
+      ],
+      "messengers": [
+        {
+          "x": -2.056145715713501,
+          "y": 6.5,
+          "z": 0.0
+        },
+        {
+          "x": 2.056145715713501,
+          "y": 6.5,
+          "z": -0.0
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 27096,
+      "mesh_count": 228,
+      "bounds_min": [
+        -5.9955220222473145,
+        -0.2030005007982254,
+        0.0
+      ],
+      "bounds_max": [
+        5.9955220222473145,
+        0.2030005007982254,
+        9.199999809265137
+      ],
+      "common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": [],
+      "distribution_column_top": 9.2,
+      "no_auxiliary": true
+    },
+    {
+      "portal": true,
+      "pole_x": -3.6,
+      "reach": 3.675,
+      "contact_z": 5.2,
+      "contact_y": 0.0,
+      "messenger_x": -0.055,
+      "messenger_y": 0.0,
+      "messenger_z": 6.5,
+      "feeders": [
+        [
+          -4.72,
+          0,
+          7.24
+        ],
+        [
+          -3.17,
+          0,
+          7.24
+        ],
+        [
+          -2.48,
+          0,
+          7.24
+        ],
+        [
+          -3.6,
+          0,
+          9.1
+        ]
+      ],
+      "add_feeder": false,
+      "key": "GeneralODoubleNoAux",
+      "name": "JPC4GeneralODoubleNoAuxPole",
+      "contacts": [
+        {
+          "x": -2,
+          "y": 5.2,
+          "z": 0.0
+        },
+        {
+          "x": 2,
+          "y": 5.2,
+          "z": -0.0
+        }
+      ],
+      "messengers": [
+        {
+          "x": -2.056145715713501,
+          "y": 6.5,
+          "z": 0.0
+        },
+        {
+          "x": 2.056145715713501,
+          "y": 6.5,
+          "z": -0.0
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 27096,
+      "mesh_count": 216,
+      "bounds_min": [
+        -5.9955220222473145,
+        -0.2030005007982254,
+        0.0
+      ],
+      "bounds_max": [
+        5.9955220222473145,
+        0.2030005007982254,
+        9.199999809265137
+      ],
+      "common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": [],
+      "distribution_column_top": 9.2,
+      "no_auxiliary": true
+    },
+    {
+      "portal": true,
+      "pole_x": 0.0,
+      "reach": 3.45,
+      "contact_z": 5.42,
+      "contact_y": 0.0,
+      "messenger_x": 3.45,
+      "messenger_y": 0.0,
+      "messenger_z": 6.44,
+      "feeders": [
+        [
+          -0.66,
+          0,
+          7.694
+        ]
+      ],
+      "add_feeder": true,
+      "key": "ConcreteInwardDoubleNoAux",
+      "name": "JPC4ConcreteInwardDoubleNoAuxPole",
+      "contacts": [
+        {
+          "x": -2,
+          "y": 5.2,
+          "z": 0.0
+        },
+        {
+          "x": 2,
+          "y": 5.2,
+          "z": -0.0
+        }
+      ],
+      "messengers": [
+        {
+          "x": -2.0000000476837156,
+          "y": 6.21999979019165,
+          "z": 0.0
+        },
+        {
+          "x": 2.0000000476837156,
+          "y": 6.21999979019165,
+          "z": -0.0
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 15992,
+      "mesh_count": 107,
+      "bounds_min": [
+        -5.920000076293945,
+        -0.23000052571296692,
+        -0.11512915045022964
+      ],
+      "bounds_max": [
+        5.920000076293945,
+        0.23000052571296692,
+        9.5600004196167
+      ],
+      "common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": [],
+      "distribution_column_top": 9.2,
+      "no_auxiliary": true
+    },
+    {
+      "portal": true,
+      "pole_x": 0.0,
+      "reach": 3.45,
+      "contact_z": 5.42,
+      "contact_y": 0.0,
+      "messenger_x": 3.45,
+      "messenger_y": 0.0,
+      "messenger_z": 6.44,
+      "feeders": [
+        [
+          -0.66,
+          0,
+          7.694
+        ]
+      ],
+      "add_feeder": true,
+      "key": "ConcreteOutwardDoubleNoAux",
+      "name": "JPC4ConcreteOutwardDoubleNoAuxPole",
+      "contacts": [
+        {
+          "x": -2,
+          "y": 5.2,
+          "z": 0.0
+        },
+        {
+          "x": 2,
+          "y": 5.2,
+          "z": -0.0
+        }
+      ],
+      "messengers": [
+        {
+          "x": -2.0000000476837156,
+          "y": 6.21999979019165,
+          "z": 0.0
+        },
+        {
+          "x": 2.0000000476837156,
+          "y": 6.21999979019165,
+          "z": -0.0
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 15992,
+      "mesh_count": 107,
+      "bounds_min": [
+        -5.920000076293945,
+        -0.23000052571296692,
+        -0.11512915045022964
+      ],
+      "bounds_max": [
+        5.920000076293945,
+        0.23000052571296692,
+        9.5600004196167
+      ],
+      "common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": [],
+      "distribution_column_top": 9.2,
+      "no_auxiliary": true
+    },
+    {
+      "portal": true,
+      "pole_x": -3.4,
+      "reach": 3.675,
+      "contact_z": 5.2,
+      "contact_y": -0.065,
+      "messenger_x": 0.01,
+      "messenger_y": 0.0,
+      "messenger_z": 6.185,
+      "feeders": [
+        [
+          -2.52,
+          0,
+          7.55
+        ],
+        [
+          -4.4,
+          0,
+          8.75
+        ],
+        [
+          -3.7,
+          0,
+          8.75
+        ],
+        [
+          -2.4,
+          0,
+          8.75
+        ]
+      ],
+      "add_feeder": false,
+      "key": "HairpinADoubleNoAux",
+      "name": "JPC4HairpinADoubleNoAuxPole",
+      "contacts": [
+        {
+          "x": -2,
+          "y": 5.2,
+          "z": -0.065
+        },
+        {
+          "x": 2,
+          "y": 5.2,
+          "z": 0.065
+        }
+      ],
+      "messengers": [
+        {
+          "x": -1.9891911029815672,
+          "y": 6.184999942779541,
+          "z": 0.0
+        },
+        {
+          "x": 1.9871051788330076,
+          "y": 6.184999942779541,
+          "z": -0.0
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 27380,
+      "mesh_count": 172,
+      "bounds_min": [
+        -5.945220470428467,
+        -0.3250119984149933,
+        -0.10000000149011612
+      ],
+      "bounds_max": [
+        6.7330002784729,
+        0.3250119984149933,
+        9.600000381469727
+      ],
+      "common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": [],
+      "distribution_column_top": 9.6,
+      "no_auxiliary": true
+    },
+    {
+      "portal": true,
+      "pole_x": -2.85,
+      "reach": 3.675,
+      "contact_z": 5.2,
+      "contact_y": -0.065,
+      "messenger_x": 0.01,
+      "messenger_y": 0.0,
+      "messenger_z": 6.185,
+      "feeders": [
+        [
+          -2.1123529411764705,
+          0,
+          7.55
+        ],
+        [
+          -3.6882352941176477,
+          0,
+          8.75
+        ],
+        [
+          -3.101470588235294,
+          0,
+          8.75
+        ],
+        [
+          -2.011764705882353,
+          0,
+          8.75
+        ]
+      ],
+      "add_feeder": false,
+      "key": "HairpinBDoubleNoAux",
+      "name": "JPC4HairpinBDoubleNoAuxPole",
+      "contacts": [
+        {
+          "x": -2,
+          "y": 5.2,
+          "z": -0.065
+        },
+        {
+          "x": 2,
+          "y": 5.2,
+          "z": 0.065
+        }
+      ],
+      "messengers": [
+        {
+          "x": -1.9871051788330076,
+          "y": 6.184999942779541,
+          "z": 0.0
+        },
+        {
+          "x": 1.9891911029815672,
+          "y": 6.184999942779541,
+          "z": -0.0
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 27380,
+      "mesh_count": 162,
+      "bounds_min": [
+        -5.945220470428467,
+        -0.3250119984149933,
+        -0.10000000149011612
+      ],
+      "bounds_max": [
+        6.7330002784729,
+        0.3250119984149933,
+        9.600000381469727
+      ],
+      "common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": [],
+      "distribution_column_top": 9.6,
+      "no_auxiliary": true
+    },
+    {
+      "key": "SingleFrameInwardDoubleNoAux",
+      "name": "JPC4SingleFrameInwardDoubleNoAuxPole",
+      "portal": true,
+      "pole_x": 0,
+      "reach": 3.155,
+      "contact_z": 5.2,
+      "contact_y": -0.02,
+      "messenger_x": 3.155,
+      "messenger_y": -0.01,
+      "messenger_z": 5.63,
+      "feeders": [
+        [
+          0.7,
+          -0.02,
+          6.92
+        ]
+      ],
+      "common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "feeder_points": [],
+      "distribution_points": [],
+      "distribution_column_top": 9.2,
+      "contacts": [
+        {
+          "x": -2,
+          "y": 5.2,
+          "z": -0.02
+        },
+        {
+          "x": 2,
+          "y": 5.2,
+          "z": 0.02
+        }
+      ],
+      "messengers": [
+        {
+          "x": -2.0000000476837156,
+          "y": 5.630000114440918,
+          "z": -0.009999999776482582
+        },
+        {
+          "x": 2.0000000476837156,
+          "y": 5.630000114440918,
+          "z": 0.009999999776482582
+        }
+      ],
+      "triangles": 46136,
+      "bounds_min": [
+        -6.116927623748779,
+        -0.24181298911571503,
+        0.0
+      ],
+      "bounds_max": [
+        6.116927623748779,
+        0.24181298911571503,
+        9.199999809265137
+      ],
+      "no_auxiliary": true
+    },
+    {
+      "key": "SingleFrameOutwardDoubleNoAux",
+      "name": "JPC4SingleFrameOutwardDoubleNoAuxPole",
+      "portal": true,
+      "pole_x": 0,
+      "reach": 3.155,
+      "contact_z": 5.2,
+      "contact_y": -0.02,
+      "messenger_x": 3.155,
+      "messenger_y": -0.01,
+      "messenger_z": 5.63,
+      "feeders": [
+        [
+          0.7,
+          -0.02,
+          6.92
+        ]
+      ],
+      "common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "feeder_points": [],
+      "distribution_points": [],
+      "distribution_column_top": 9.2,
+      "contacts": [
+        {
+          "x": -2,
+          "y": 5.2,
+          "z": -0.02
+        },
+        {
+          "x": 2,
+          "y": 5.2,
+          "z": 0.02
+        }
+      ],
+      "messengers": [
+        {
+          "x": -2.0000000476837156,
+          "y": 5.630000114440918,
+          "z": -0.009999999776482582
+        },
+        {
+          "x": 2.0000000476837156,
+          "y": 5.630000114440918,
+          "z": 0.009999999776482582
+        }
+      ],
+      "triangles": 46136,
+      "bounds_min": [
+        -6.116927623748779,
+        -0.24181298911571503,
+        0.0
+      ],
+      "bounds_max": [
+        6.116927623748779,
+        0.24181298911571503,
+        9.199999809265137
+      ],
+      "no_auxiliary": true
+    },
+    {
+      "key": "OriginalINoAux",
+      "name": "JPC4OriginalINoAuxPole",
+      "portal": false,
+      "pole_x": 0,
+      "reach": 3.675,
+      "contact_z": 5.2,
+      "contact_y": 0,
+      "messenger_x": 3.675,
+      "messenger_y": 0,
+      "messenger_z": 6.16,
+      "feeders": [
+        [
+          -0.66,
+          0,
+          7.694
+        ]
+      ],
+      "contacts": [
+        {
+          "x": 3.674999952316284,
+          "y": 5.199999809265137,
+          "z": 0.0
+        }
+      ],
+      "messengers": [
+        {
+          "x": 3.674999952316284,
+          "y": 6.159999847412109,
+          "z": 0.0
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 12624,
+      "bounds_min": [
+        -4.183100700378418,
+        -0.18199999630451202,
+        0.0
+      ],
+      "bounds_max": [
+        0.8200000524520874,
+        0.18199999630451202,
+        8.0
+      ],
+      "no_auxiliary": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": []
+    },
+    {
+      "key": "OriginalONoAux",
+      "name": "JPC4OriginalONoAuxPole",
+      "portal": false,
+      "pole_x": 0,
+      "reach": 3.675,
+      "contact_z": 5.2,
+      "contact_y": 0,
+      "messenger_x": 3.675,
+      "messenger_y": 0,
+      "messenger_z": 6.16,
+      "feeders": [
+        [
+          -0.66,
+          0,
+          7.694
+        ]
+      ],
+      "contacts": [
+        {
+          "x": 3.674999952316284,
+          "y": 5.199999809265137,
+          "z": 0.0
+        }
+      ],
+      "messengers": [
+        {
+          "x": 3.674999952316284,
+          "y": 6.159999847412109,
+          "z": 0.0
+        }
+      ],
+      "feeder_points": [],
+      "triangles": 12696,
+      "bounds_min": [
+        -5.072500228881836,
+        -0.18199999630451202,
+        0.0
+      ],
+      "bounds_max": [
+        0.8200000524520874,
+        0.18199999630451202,
+        8.0
+      ],
+      "no_auxiliary": true,
+      "revision": "no-auxiliary-0311",
+      "distribution_points": []
+    },
+    {
+      "key": "OriginalIDoubleNoAux",
+      "name": "JPC4OriginalIDoubleNoAuxPole",
+      "portal": true,
+      "pole_x": 0,
+      "reach": 3.675,
+      "contact_z": 5.2,
+      "contact_y": 0,
+      "messenger_x": 3.675,
+      "messenger_y": 0,
+      "messenger_z": 6.16,
+      "feeders": [
+        [
+          -0.66,
+          0,
+          7.694
+        ]
+      ],
+      "common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "feeder_points": [],
+      "distribution_points": [],
+      "distribution_column_top": 9.2,
+      "contacts": [
+        {
+          "x": -2,
+          "y": 5.2,
+          "z": 0
+        },
+        {
+          "x": 2,
+          "y": 5.2,
+          "z": 0
+        }
+      ],
+      "messengers": [
+        {
+          "x": -2.0000000476837156,
+          "y": 6.159999847412109,
+          "z": 0.0
+        },
+        {
+          "x": 2.0000000476837156,
+          "y": 6.159999847412109,
+          "z": -0.0
+        }
+      ],
+      "triangles": 22624,
+      "bounds_min": [
+        -6.418000221252441,
+        -0.2030005007982254,
+        0.0
+      ],
+      "bounds_max": [
+        6.418000221252441,
+        0.2030005007982254,
+        9.199999809265137
+      ],
+      "no_auxiliary": true
+    },
+    {
+      "key": "OriginalODoubleNoAux",
+      "name": "JPC4OriginalODoubleNoAuxPole",
+      "portal": true,
+      "pole_x": 0,
+      "reach": 3.675,
+      "contact_z": 5.2,
+      "contact_y": 0,
+      "messenger_x": 3.675,
+      "messenger_y": 0,
+      "messenger_z": 6.16,
+      "feeders": [
+        [
+          -0.66,
+          0,
+          7.694
+        ]
+      ],
+      "common_wiring": true,
+      "revision": "no-auxiliary-0311",
+      "feeder_points": [],
+      "distribution_points": [],
+      "distribution_column_top": 9.2,
+      "contacts": [
+        {
+          "x": -2,
+          "y": 5.2,
+          "z": 0
+        },
+        {
+          "x": 2,
+          "y": 5.2,
+          "z": 0
+        }
+      ],
+      "messengers": [
+        {
+          "x": -2.0000000476837156,
+          "y": 6.159999847412109,
+          "z": 0.0
+        },
+        {
+          "x": 2.0000000476837156,
+          "y": 6.159999847412109,
+          "z": -0.0
+        }
+      ],
+      "triangles": 22624,
+      "bounds_min": [
+        -6.418000221252441,
+        -0.2030005007982254,
+        0.0
+      ],
+      "bounds_max": [
+        6.418000221252441,
+        0.2030005007982254,
+        9.199999809265137
+      ],
+      "no_auxiliary": true
     }
   ]
 }
