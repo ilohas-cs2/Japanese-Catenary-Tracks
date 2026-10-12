@@ -6,7 +6,7 @@ Cities: Skylines II 向けの日本風架線付き線路 MOD の実行コード�
 
 [Paradox Mods](https://mods.paradoxplaza.com/mods/161773/Any) から導入します。
 
-単線・複線、架線柱の種類に応じた配電線・き電線、線路選択アイコンに対応しています。
+単線・複線、架線柱の種類に応じた配電線・き電線、線路選択アイコンに対応しています。0.3.0.11では補助線とその支持金具を省いた「NO AUX」22種類を追加しました。補助線ありからなしへ切り替わる箇所では、補助線を最後の対応する架線柱で終端します。列車用の架線とその支持部は残ります。
 
 このリポジトリはコードと実行時設定を収録しています。ゲーム本体のライブラリ、モデル・テクスチャ・アイコンのパッケージ、制作資料は含みません。コードのビルドだけでは完全な MOD になりません。
 
@@ -26,7 +26,7 @@ PowerShell でゲームの `Cities2_Data/Managed` フォルダーを指定しま
 
 実際に動作させるには、対応する配布版のモデル・アイコンパッケージとリビジョンマーカーも必要です。配布版と異なるアセットを組み合わせると、ロードや表示が正常に動作しない場合があります。ゲームを終了してから作業し、ローカル版とサブスクライブ版を重複して有効にしないでください。
 
-配布版・実行コードの AssemblyVersion は **0.3.0.10** です。踏切の道路を鉄道の分岐として数えていた接続判定を修正し、踏切をまたぐ架線・配電線の接続を改善しました。ゲーム内で接続改善を確認済みですが、一部に余計な線が残る場合があります。前版の軽量化も維持しています。専用線路がない街では架線補正用のオブジェクト走査を省略し、補正対象を専用線路と接続先に限定しました。状態が変化していない間は補正処理を省略します。
+配布版・実行コードの AssemblyVersion は **0.3.0.11** です。補助線の終端と同モデル・異種モデル・単線・踏切・保存再読み込み、および制作データなしの配布版をユーザー環境で確認済みです。前版では踏切の道路を鉄道の分岐として数えていた接続判定を修正し、踏切をまたぐ架線・配電線の接続を改善しました。ゲーム内で接続改善を確認済みですが、一部に余計な線が残る場合があります。前版の軽量化も維持しています。専用線路がない街では架線補正用のオブジェクト走査を省略し、補正対象を専用線路と接続先に限定しました。状態が変化していない間は補正処理を省略します。
 
 ## 既知の課題
 
@@ -45,7 +45,7 @@ Install the complete mod through the Paradox Mods link above. This repository co
 
 To build, install the .NET 8 SDK and run the PowerShell command above with your game's `Cities2_Data/Managed` directory. Tested against game version 1.6.2f1. Output is written to `build/`; no game libraries are copied and nothing is installed automatically. Matching distribution assets and revision markers are required to run the mod. Close the game before replacing files and avoid loading local and subscribed copies simultaneously.
 
-Package and runtime assembly version: **0.3.0.10**. Fixed wire connectivity at level crossings by excluding road-only edges from the railway wire junction degree. Improved continuity has been confirmed in game; some stray wire segments remain. The previous performance improvements are retained. Catenary correction skips object scanning in cities without custom tracks, scopes processing to custom tracks and their connections, and skips correction while state is unchanged. Wire discontinuities or stray segments can occur at junctions and some model transitions. Pantograph tracking depends on the vehicle asset and is not supported by every custom vehicle.
+Package and runtime assembly version: **0.3.0.11**. Added 22 NO AUX variants without auxiliary wires or their hardware. Auxiliary wires stop at the last equipped support when connecting to NO AUX tracks. Train wires remain. Transitions, single tracks, crossings, save/reload and the isolated distribution package were checked in the user’s environment. The previous version fixed wire connectivity at level crossings by excluding road-only edges from the railway wire junction degree. Improved continuity has been confirmed in game; some stray wire segments remain. The previous performance improvements are retained. Catenary correction skips object scanning in cities without custom tracks, scopes processing to custom tracks and their connections, and skips correction while state is unchanged. Wire discontinuities or stray segments can occur at junctions and some model transitions. Pantograph tracking depends on the vehicle asset and is not supported by every custom vehicle.
 
 No reuse license has been granted at this time. Source publication does not grant permission to redistribute or modify model, texture, or icon assets. Game and third-party materials remain the property of their respective rights holders.
 
