@@ -31,7 +31,7 @@ namespace JPCatenaryPrototype {
    public TrackPrefab[] tracks;
    public TrackPrefab pairedTrack;
    public float3 projectionAnchor;
-   public bool failed,portal,commonWiring;
+   public bool failed,portal,commonWiring,noAuxiliary;
   }
   AlternatingFamily originalFamily;
   readonly List<AlternatingFamily> expansionFamilies=new List<AlternatingFamily>();

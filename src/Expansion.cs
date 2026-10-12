@@ -22,7 +22,7 @@ namespace JPCatenaryPrototype {
   string expansionPending;
   StaticObjectPrefab expansionExisting;
   const string HairpinRevision="horizontal-upper-arm-0206";
-  static string ExpansionRevision(ExpansionModel m){return (m.common_wiring||m.single_common_wiring)?m.revision:m.key=="HairpinA"?HairpinRevision:null;}
+  static string ExpansionRevision(ExpansionModel m){return (m.no_auxiliary||m.common_wiring||m.single_common_wiring)?m.revision:m.key=="HairpinA"?HairpinRevision:null;}
   static bool NeedsExpansionRefresh(ExpansionModel m){var revision=ExpansionRevision(m);return !string.IsNullOrEmpty(revision)&&(!File.Exists(RevisionPath(m.name))||File.ReadAllText(RevisionPath(m.name)).Trim()!=revision);}
   bool expansionFailed,expansionBuilt;
   readonly List<TrackPrefab> expansionTracks=new List<TrackPrefab>();
@@ -76,7 +76,7 @@ namespace JPCatenaryPrototype {
      expansionImport=null;expansionPending=null;expansionExisting=null;return;
     }
     foreach(var m in expansionCatalog.models){
-     if(!activePairs.Any(p=>p[1]==m.key||p[2]==m.key||p[1]+"Double"==m.key||p[2]+"Double"==m.key))continue;
+     if(!activePairs.Any(p=>p[1]==m.key||p[2]==m.key||p[1]+"Double"==m.key||p[2]+"Double"==m.key||p[1]+"NoAux"==m.key||p[2]+"NoAux"==m.key||p[1]+"DoubleNoAux"==m.key||p[2]+"DoubleNoAux"==m.key))continue;
      int count=all.OfType<StaticObjectPrefab>().Count(p=>p.name==m.name);
      if(count>1)throw new InvalidOperationException("Duplicate expansion model "+m.name);
      if(count==1&&!NeedsExpansionRefresh(m))continue;
@@ -132,8 +132,10 @@ namespace JPCatenaryPrototype {
      expansionFamilies.Add(new AlternatingFamily{key=pair[0],a=doubles.networkPole,b=doubles.alternatePole,tracks=new[]{paired},portal=true,commonWiring=true,projectionAnchor=new float3(0,ContactLocal,0)});
      Mod.Log.Info("EXPANSION_REGISTERED "+dm.key+" commonWiring=true feeders=2 distribution=3 prefabs="+doubles.added.Count);
     }
+    BuildNoAuxiliaryTracks(all,labels,ref priority);
     foreach(var kv in originalState)if(Fingerprint(kv.Key)!=kv.Value)throw new InvalidOperationException("Expansion mutated existing prefab: "+kv.Key.name);
     int expectedTracks=activePairs.Sum(p=>expansionCatalog.models.Single(m=>m.key==p[1]).portal||p[0]=="OriginalIO"?1:3);
+    expectedTracks+=noAuxiliaryTrackCount;
     if(expansionTracks.Count!=expectedTracks)throw new InvalidOperationException("Expansion track count mismatch");
     foreach(string language in new[]{"ja-JP","en-US"})GameManager.instance.localizationManager.AddSource(language,new MemorySource(labels));
     expansionBuilt=true;Mod.Log.Info("EXPANSION_READY models="+(activePairs.Length*4)+" alternatingFamilies="+expansionFamilies.Count+" tracks="+expansionTracks.Count+" existingTracks=5 contactAboveRail=5m commonUpperRoles=5; runtime placement pending");
@@ -154,7 +156,7 @@ namespace JPCatenaryPrototype {
    public ExpansionBuilder(string key,ExpansionModel m,ExpansionModel b,StaticObjectPrefab imported,StaticObjectPrefab importedB,StaticObjectPrefab template,NetLanePrefab feederTemplate,NetLanePrefab[] channels){
     familyKey=key;
     model=m;contact=m.contacts.Select(p=>p.Value).ToArray();messenger=m.messengers.Select(p=>p.Value).ToArray();feed=m.UpperAnchors.Select(p=>p.Value).ToArray();
-    if(contact.Length!=(m.portal?2:1)||messenger.Length!=contact.Length||feed.Length==0)throw new InvalidOperationException("Missing anchors: "+m.key);
+    if(contact.Length!=(m.portal?2:1)||messenger.Length!=contact.Length||(!m.no_auxiliary&&feed.Length==0))throw new InvalidOperationException("Missing anchors: "+m.key);
     if(contact.Any(p=>math.abs(p.y-ContactLocal)>.001f))throw new InvalidOperationException("Contact height mismatch: "+m.key);
     networkPole=(StaticObjectPrefab)template.Clone(m.name+"_Network");networkPole.m_Meshes=imported.m_Meshes;
     networkPole.Remove<UIObject>();networkPole.Remove<PlaceableObject>();
@@ -202,9 +204,10 @@ namespace JPCatenaryPrototype {
     foreach(var p in sourceChecks)if(Fingerprint(p.Key)!=p.Value)throw new InvalidOperationException("Source changed while cloning expansion: "+p.Key.name);
     result.Remove<Unlockable>();result.Remove<UnlockOnBuild>();
     var ui=result.GetComponent<UIObject>();ui.m_Priority=priority;ui.m_IsDebugObject=false;
-    TrackIcons.Apply(result);
+    if(model.no_auxiliary)NoAuxiliaryTrackIcons.Apply(result);else TrackIcons.Apply(result);
     labels["Assets.NAME["+result.name+"]"]="JPC2 "+familyKey+" / "+kind+" (5m)";
     labels["Assets.DESCRIPTION["+result.name+"]"]=model.common_wiring?"共通配線の複線架線。配電線は片側3本、き電線は左右1本ずつ。トロリ線はレール上5m。":"Photo model prototype with feeder wires. Contact wire 5m above rail. Ground and elevated test; junctions under development.";
+    if(model.no_auxiliary){labels["Assets.NAME["+result.name+"]"]="JPC / "+familyKey.Replace("NoAux","")+" / "+kind+" [配電線・き電線なし / No auxiliary wires]";labels["Assets.DESCRIPTION["+result.name+"]"]="配電線・き電線と専用支持金具を省いた架線柱。列車用のトロリ線・ちょう架線は維持。Contact and messenger wires only; auxiliary conductors and their hardware are omitted.";}
     added.Add(result);return result;
    }
    NetSectionPrefab CopySection(NetSectionPrefab src,string side,Dictionary<PrefabBase,string> checks){
@@ -243,8 +246,8 @@ namespace JPCatenaryPrototype {
     var aux=dst.GetComponent<AuxiliaryLanes>();var list=new List<AuxiliaryLaneInfo>();
     int mi=model.portal?(left?0:1):0;
     foreach(var a in aux.m_AuxiliaryLanes){
-     if(a.m_Lane.name=="JPCatenary_Feeder_Cable_Lane")continue;
-     if(a.m_Lane.name=="Train Contact Cable Lane"||a.m_Lane.name=="Train Catenary Cable Lane")CatenaryPlacement.RailWireSpan(a,model.portal||model.single_common_wiring);
+     if(a.m_Lane.name=="JPCatenary_Feeder_Cable_Lane"||a.m_Lane.name.StartsWith("JPC2_SharedFeederChannel")||a.m_Lane.name.StartsWith("JPC3_"))continue;
+     if(a.m_Lane.name=="Train Contact Cable Lane"||a.m_Lane.name=="Train Catenary Cable Lane")CatenaryPlacement.RailWireSpan(a,model.portal||model.single_common_wiring||model.no_auxiliary);
      if(a.m_Lane.name=="Train Contact Cable Lane")a.m_Position.y=ContactY;
      if(a.m_Lane.name=="Train Catenary Cable Lane"){
       a.m_Position.y=PoleY+messenger[mi].y;
@@ -268,4 +271,6 @@ namespace JPCatenaryPrototype {
   }
  }
 }
+
+
 

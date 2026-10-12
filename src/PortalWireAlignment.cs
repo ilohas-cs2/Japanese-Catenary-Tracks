@@ -130,6 +130,7 @@ namespace JPCatenaryPrototype {
     MarkJoinRender(e);rewired++;
    }
    int redundantWires=SuppressRedundantPortalWires(poses,supportAnchors,routes,routeNodes,routeDegree,supportedWires,seamJoins);
+   TerminateAuxiliaryWires(poses,supportAnchors,routes,routeNodes,feederPrefabs);
    AuditMixedPortalFeeders(poses,supportAnchors,routes,routeNodes,routeDegree,feederPrefabs);
    string status="seamPairs="+seamPairs+" portalPoles="+poses.Count+" feederLanes="+feederLanes+" railLanes="+railLanes+" routed="+routed+" unmatched="+unmatched+" degenerate="+degenerate+" hidden="+hiddenLanes+" redundantNodeWires="+redundantWires;
    if(rotated>0||rewired>0||status!=portalWireStatus){

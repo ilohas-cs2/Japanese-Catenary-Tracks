@@ -67,7 +67,7 @@ namespace JPCatenaryPrototype {
     if(EntityManager.HasComponent<MixedJoinChoice>(node)){
      var saved=EntityManager.GetComponentData<MixedJoinChoice>(node);AlternatingFamily f;if(tracks.TryGetValue(saved.prefab,out f))previous=f.key;
     }
-    string key=MixedJoinPolicy.Select(pair[0].family.key,pair[0].order,pair[1].family.key,pair[1].order,previous);
+    string key=pair[0].family.noAuxiliary!=pair[1].family.noAuxiliary?pair.First(e=>!e.family.noAuxiliary).family.key:MixedJoinPolicy.Select(pair[0].family.key,pair[0].order,pair[1].family.key,pair[1].order,previous);
     var winner=pair.First(e=>e.family.key==key);winners.Add(node,winner.family);
     if(pair[0].order==pair[1].order&&previous==null)ties++;
     var choice=new MixedJoinChoice{prefab=winner.prefab};
